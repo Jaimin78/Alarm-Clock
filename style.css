@@ -1,0 +1,38 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background:#0d0e1c;
+}
+
+.container { 
+   position:relative;
+   top:15%;
+   display: flex; 
+   width:80%;
+   height:60%;
+   margin:auto;
+   flex-direction:column;
+   background-color:#040614;
+   border-radius:15px;
+   border:1px solid white;
+}
+
+.header{
+  width:100%; 
+  text-align:center;
+  padding:10px 0;
+}
+
+.header img{
+  width:80px;
+}
+
+.header h3{
+  color:#f2f2f2dd;
+  padding:5px;
+}
