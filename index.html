@@ -10,13 +10,47 @@
 
 <body>
   <div class="container">
+    
     <div class="header">
        <img src="clock.png" />
-       <h3>Alarm Clock</h3>
+       <h1>Alarm Clock</h1>
     </div>
+    
     <div class="current-time">
-      
+      <h1>12:23:01 AM</h1>
     </div>
+    
+    <div class="option">   
+      <div>
+         <select id="hour" name="hour">
+           <option>Hour</option>
+         </select>
+      </div>
+      <div class="span"><span>:</span></div>
+      <div>
+         <select id="minute" name="minute">
+           <option>Minute</option>
+         </select>
+      </div>
+      <div class="span"><span>:</span></div>
+      <div>
+         <select id="second" name="second">
+           <option>Second</option>
+         </select>
+      </div>
+
+      <div> 
+         <select id="timezone" name="timezone">
+           <option>PM</option>
+           <option>AM</option>
+         </select>
+      </div>   
+    </div>
+
+    <div class="btn">
+      <button>Set Alarm</button>
+    </div>
+    
   </div>
   <script src="script.js"></script>
 

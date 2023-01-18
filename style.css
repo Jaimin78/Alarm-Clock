@@ -11,10 +11,10 @@ html, body {
 
 .container { 
    position:relative;
-   top:15%;
+   top:25%;
    display: flex; 
    width:80%;
-   height:60%;
+   /*height:400px;*/
    margin:auto;
    flex-direction:column;
    background-color:#040614;
@@ -29,10 +29,92 @@ html, body {
 }
 
 .header img{
-  width:80px;
+  width:20%;
 }
 
-.header h3{
+.header h1{
   color:#f2f2f2dd;
   padding:5px;
+}
+
+.current-time{
+  width:100%;
+}
+
+.current-time h1{
+  color:#ffc800;
+  text-align:center;
+  letter-spacing:5px;
+  padding:5px;
+  margin-bottom:5px;
+} 
+
+.option{
+  width:50%;
+  display:flex;
+  margin:5px auto;
+  border:1px solid white;
+  justify-content:center;
+}
+
+.option div{
+  width:100%;
+  text-align:center;
+}
+
+.span{
+  height:100%;
+}
+
+.span span{
+  position:relative;
+  top:13px;
+  color:white;
+  font-size:20px;
+}
+
+.option div select{
+  width:70px;
+  height:50px;
+  padding:5px;
+  margin:1px;
+  font-size:15px;
+  background-color:#00011f;
+  border:none;
+  outline:none;
+  color:white;
+  text-align:center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-overflow: '..';
+}
+
+.btn{
+  width:100%;
+  text-align:center;
+  margin:10px 0;
+}
+
+.btn button{
+  width:40%;
+  padding:15px 0;
+  background-color:#000d17;
+  border:2px solid white;
+  color:white;
+  font-size:20px;
+  border-radius:10px;
+}
+
+.btn button:hover{
+  background-color:#151521;
+}
+
+@media only screen and (max-width: 600px) {
+  .option{
+    width:90%;
+  }
+
+  .btn button{
+    width:90%;
+  }
 }
