@@ -27,4 +27,19 @@ const getOptions = () => {
          addHour.add(new Option(i+1))
      }
 }
+
+const showTime = () => {
+  let element = document.getElementById('time');
+  setInterval(()=>{  
+    const date = new Date()
+    let hour = date.getHours()
+    let minute = date.getMinutes()
+    let second = date.getSeconds()
+    let zone = hour<12?"AM":"PM"
+    //console.log(hour-12, minute, second, zone, element)
+    element.innerText = `${hour==0?hour=12:hour-12}:${minute}:${second} ${zone}`;
+  },1000)
+}
+
+showTime()
 getOptions()
