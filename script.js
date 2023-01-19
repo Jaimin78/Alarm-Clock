@@ -38,6 +38,7 @@ const showTime = () => {
     let second = date.getSeconds()
     let zone = hour<12?"AM":"PM"
     hour = hour<12? hour:hour-12
+    hour==0?hour=12:hour
     //console.log(hour-12, minute, second, zone, element)
     element.innerText = `${hour}:${minute}:${second} ${zone}`;
   },1000)
