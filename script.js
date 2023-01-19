@@ -48,21 +48,21 @@ const showTime = () => {
 //OnClick Set Alarm it will set Alarm for upcoming time
 const setAlerm = () =>
 {
-  let hour = document.getElementById('hour').value;
+  let hour = document.getElementById('hour').value; 
   let minute = document.getElementById('minute').value;
   let second = document.getElementById('second').value;
 
 // console.log(hour, minute, second)
   
   const date = new Date()
-  let h = date.getHours()
+  let h = date.getHours() - 12
   let m = date.getMinutes()
   let s = date.getSeconds()
-  h<12?h:h-12
+  
   let milisecond1 = (Number(hour)*60*60+Number(minute)*60+Number(second))*1000 
   let milisecond2 = (h*60*60+m*60+s)*1000  
   let milisecond = milisecond1 - milisecond2
-  // console.log(milisecond)
+  console.log(milisecond)
   if(hour && minute && second > 0){
       let msg = document.getElementById('msg');
       msg.innerText = `Alarm set at: ${hour}:${minute}:${second}`
