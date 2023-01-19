@@ -28,6 +28,7 @@ const getOptions = () => {
      }
 }
 
+//Showing Current Time 
 const showTime = () => {
   let element = document.getElementById('time');
   setInterval(()=>{  
@@ -36,9 +37,66 @@ const showTime = () => {
     let minute = date.getMinutes()
     let second = date.getSeconds()
     let zone = hour<12?"AM":"PM"
+    hour = hour<12? hour:hour-12
     //console.log(hour-12, minute, second, zone, element)
-    element.innerText = `${hour==0?hour=12:hour-12}:${minute}:${second} ${zone}`;
+    element.innerText = `${hour}:${minute}:${second} ${zone}`;
   },1000)
+}
+
+
+//OnClick Set Alarm it will set Alarm for upcoming time
+const setAlerm = () =>
+{
+  let hour = document.getElementById('hour').value;
+  let minute = document.getElementById('minute').value;
+  let second = document.getElementById('second').value;
+
+// console.log(hour, minute, second)
+  
+  const date = new Date()
+  let h = date.getHours()
+  let m = date.getMinutes()
+  let s = date.getSeconds()
+  h<12?h:h-12
+  let milisecond1 = (Number(hour)*60*60+Number(minute)*60+Number(second))*1000 
+  let milisecond2 = (h*60*60+m*60+s)*1000  
+  let milisecond = milisecond1 - milisecond2
+  // console.log(milisecond)
+  if(hour && minute && second > 0){
+      let msg = document.getElementById('msg');
+      msg.innerText = `Alarm set at: ${hour}:${minute}:${second}`
+      setTimeout(()=>{
+        let img = document.getElementById('img')
+        let btn = document.getElementById('stop-alerm');
+        btn.style.display = "block";
+        img.classList.add('shake')
+        audioplay(1)
+      },milisecond)
+   }else{
+    alert("please select all options")
+  }
+}
+
+
+const stopAlerm = () =>{
+  let btn = document.getElementById('stop-alerm');
+  let img = document.getElementById('img');  
+  let msg = document.getElementById('msg');
+  msg.innerText = ``
+  img.classList.remove('shake')
+  btn.style.display = "none";
+  audioplay(0)
+}
+
+
+const audioplay = (i) =>{
+   let x = document.getElementById("myAudio"); 
+   if(i==1){
+     x.play()
+   }else{
+     x.pause();
+   }
+   
 }
 
 showTime()
