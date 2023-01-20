@@ -39,6 +39,7 @@ const showTime = () => {
     let zone = hour<12?"AM":"PM"
     hour = hour<12? hour:hour-12
     hour==0?hour=12:hour
+
     //console.log(hour-12, minute, second, zone, element)
     element.innerText = `${hour}:${minute}:${second} ${zone}`;
   },1000)
@@ -55,10 +56,11 @@ const setAlerm = () =>
 // console.log(hour, minute, second)
   
   const date = new Date()
-  let h = date.getHours() - 12
+  let h = date.getHours() 
   let m = date.getMinutes()
   let s = date.getSeconds()
-  
+
+  h>12?hour=hour+12:hour
   let milisecond1 = (Number(hour)*60*60+Number(minute)*60+Number(second))*1000 
   let milisecond2 = (h*60*60+m*60+s)*1000  
   let milisecond = milisecond1 - milisecond2
