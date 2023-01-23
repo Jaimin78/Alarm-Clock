@@ -53,33 +53,41 @@ const setAlerm = () =>
   let minute = document.getElementById('minute').value;
   let second = document.getElementById('second').value;
 
-// console.log(hour, minute, second)
+  
   
   const date = new Date()
   let h = date.getHours() 
   let m = date.getMinutes()
   let s = date.getSeconds()
+  h>12?h=h-12:h
 
-  h>12?hour=hour+12:hour
-  let milisecond1 = (Number(hour)*60*60+Number(minute)*60+Number(second))*1000 
-  let milisecond2 = (h*60*60+m*60+s)*1000  
-  let milisecond = milisecond1 - milisecond2
-  console.log(milisecond)
-  if(hour && minute && second > 0){
-      let msg = document.getElementById('msg');
-      msg.innerText = `Alarm set at: ${hour}:${minute}:${second}`
-      setTimeout(()=>{
-        let img = document.getElementById('img')
-        let btn = document.getElementById('stop-alerm');
-        btn.style.display = "block";
-        img.classList.add('shake')
-        audioplay(1)
-      },milisecond)
-   }else{
-    alert("please select all options")
-  }
+  if(hour!=0){
+        if(minute!= "invalid" && second!= "invalid"){   
+          
+           let msg = document.getElementById('msg');     
+           //console.log(hour, minute, second)
+           //console.log(h, m, s)
+           let milisecond1 = (Number(hour)*60*60+Number(minute)*60+Number(second))*1000
+           let milisecond2 = (h*60*60+m*60+s)*1000  
+           let milisecond = milisecond1 - milisecond2
+           //console.log(milisecond)  
+                 
+           msg.innerText = `Alarm set at: ${hour}:${minute}:${second}`
+          setTimeout(()=>{
+            let img = document.getElementById('img')
+            let btn = document.getElementById('stop-alerm');
+            btn.style.display = "block";
+            img.classList.add('shake')
+            audioplay(1)
+          },milisecond)
+        }
+        else{
+           alert("please select proper option for minutes and second")
+        }
+    }else{
+       alert("Please select hour")
+    }
 }
-
 
 const stopAlerm = () =>{
   let btn = document.getElementById('stop-alerm');
